@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подбор автомобиля</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Подбор автомобиля</h1>
+            <p>Найдите свой идеальный автомобиль по заданным параметрам.</p>
+        </header>
+
+        <form action="/search" method="POST">
+            <div class="form-group">
+                <label for="price_from">Цена от:</label>
+                <input type="number" id="price_from" name="price_from" required>
+            </div>
+            <div class="form-group">
+                <label for="price_to">Цена до:</label>
+                <input type="number" id="price_to" name="price_to" required>
+            </div>
+
+            <div class="form-group">
+                <label for="body">Тип кузова:</label>
+                <select id="body" name="body" required>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Truck">Truck</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="engine_power_from">Мощность двигателя от (л.с.):</label>
+                <input type="number" id="engine_power_from" name="engine_power_from" required>
+            </div>
+            <div class="form-group">
+                <label for="engine_power_to">Мощность двигателя до (л.с.):</label>
+                <input type="number" id="engine_power_to" name="engine_power_to" required>
+            </div>
+
+            <div class="form-group">
+                <label for="year_from">Год выпуска от:</label>
+                <input type="number" id="year_from" name="year_from" required>
+            </div>
+            <div class="form-group">
+                <label for="year_to">Год выпуска до:</label>
+                <input type="number" id="year_to" name="year_to" required>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Цвет:</label>
+                <select id="color" name="color" required>
+                    <option value="Red">Красный</option>
+                    <option value="Blue">Синий</option>
+                    <option value="Black">Чёрный</option>
+                    <option value="White">Белый</option>
+                    <option value="Silver">Серебристый</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="gearbox">Тип коробки передач:</label>
+                <select id="gearbox" name="gearbox" required>
+                    <option value="Manual">Механика</option>
+                    <option value="Automatic">Автомат</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="seats">Количество сидячих мест:</label>
+                <input type="number" id="seats" name="seats" required>
+            </div>
+            <div class="form-group">
+                <label for="drive">Тип привода:</label>
+                <select id="drive" name="drive" required>
+                    <option value="Front-wheel">Передний</option>
+                    <option value="All-wheel">Полный</option>
+                    <option value="Rear-wheel">Задний</option>
+                </select>
+            </div>
+
+            <button type="submit">Поиск</button>
+        </form>
+
+        <div class="form-group">
+            <a href="/add" class="button">Добавить новый автомобиль</a>
+        </div>
+
+        <div class="form-group">
+            <a href="/catalog" class="button">Просмотреть каталог</a>
+        </div>
+    </div>
+</body>
+</html>

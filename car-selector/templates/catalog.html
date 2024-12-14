@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог автомобилей</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Каталог автомобилей</h1>
+        </header>
+       <div class="catalog">
+    {% for car in cars %}
+    <div class="car-card">
+        <h2>{{ car.name }} ({{ car.mark }})</h2>
+        <p>Цена: {{ car.price }} руб.</p>
+        <p>Кузов: {{ car.body }}</p>
+        <p>Привод: {{ car.drive }}</p>
+        <p>Мощность: {{ car.engine_power }} л.с.</p>
+        <p>Мест: {{ car.seats }}</p>
+        <p>Цвет: {{ car.color }}</p>
+        <p>Коробка передач: {{ car.gearbox }}</p>
+        <p>Год выпуска: {{ car.year }}</p>
+        <td><img src="{{ url_for('static', filename='photos/' + car.photo) }}" alt="Фото автомобиля"></td>
+    </div>
+    {% endfor %}
+</div>
+        <div class="catalog">
+    {% for car in cars %}
+    <div class="car-card">
+        <h2>{{ car.name }} ({{ car.mark }})</h2>
+        <p>Цена: {{ car.price }} руб.</p>
+        <p>Кузов: {{ car.body }}</p>
+        <p>Привод: {{ car.drive }}</p>
+        <p>Мощность: {{ car.engine_power }} л.с.</p>
+        <p>Мест: {{ car.seats }}</p>
+        <p>Цвет: {{ car.color }}</p>
+        <p>Коробка передач: {{ car.gearbox }}</p>
+        <p>Год выпуска: {{ car.year }}</p>
+        <img src="{{ url_for('static', filename='photos/' + car.photo) }}" alt="Фото автомобиля" class="car-photo">
+
+    </div>
+    {% endfor %}
+</div>
+
+
+        <div class="form-group">
+            <a href="/" class="button">Вернуться на главную</a>
+        </div>
+    </div>
+</body>
+</html>

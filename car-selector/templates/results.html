@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Результаты поиска</h1>
+            <p>Найденные автомобили:</p>
+        </header>
+
+        {% if cars %}
+            <ul class="cars-list">
+                {% for car in cars %}
+                    <li class="car-item">
+                        <img src="{{ url_for('static', filename=car[11]) }}" alt="{{ car[1] }}" class="car-image">
+                        <h3>{{ car[1] }} - {{ car[2] }}</h3>
+                        <p>Цена: ${{ car[3] }}</p>
+                        <p>Мощность двигателя: {{ car[7] }} л.с.</p>
+                        <p>Количество мест: {{ car[8] }}</p>
+                        <p>Цвет: {{ car[9] }}</p>
+                        <p>Тип КПП: {{ car[10] }}</p>
+                        <p>Год выпуска: {{ car[12] }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>К сожалению, не найдено автомобилей по вашему запросу.</p>
+        {% endif %}
+
+        <a href="/">Назад</a>
+    </div>
+</body>
+</html>
